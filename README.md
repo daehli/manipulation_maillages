@@ -246,7 +246,7 @@ Maintenant,la forme est centrée en `(0,0,0)`. La longueur des axes est de longu
 
 |Taille du Cube|
 |---|
-|![alt text][longeur]|
+|![alt text][longueur]|
 
 ### World Space
 
@@ -431,5 +431,5 @@ La matrice principale est devenue une matrice 4X4 pour pouvoir appliquer les tro
 [axe_z]: https://git.unistra.fr/nadeauotis/P4x/raw/master/TP3/images/axe_z.png
 [translation]: https://git.unistra.fr/nadeauotis/P4x/raw/master/TP3/images/translation.png
 [scale]: https://git.unistra.fr/nadeauotis/P4x/raw/master/TP3/images/scale.png
-[longueur]: https://git.unistra.fr/nadeauotis/P4x/raw/master/TP3/images/longeur.png
+[longueur]: /assets/longeur.png
 [faceNormal]: https://git.unistra.fr/nadeauotis/P4x/raw/master/TP3/images/faceNormal.png
