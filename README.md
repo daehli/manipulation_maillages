@@ -360,7 +360,7 @@ r_z.set(
 
 Ces rotations agissent toutes différemment sur l'objet.Elles  appliquent toutes une rotation différente sur chacun des axes.
 
-|$R_x(\theta)$|$R_y(\theta)$|$R_z(\theta)$|
+|$$R_x(\theta)$$|$$R_y(\theta)$$|$$R_z(\theta)$$|
 |---|---|---|
 |![alt text][axe_x]|![alt text][axe_y]|![alt text][axe_z]
 
