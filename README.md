@@ -1,3 +1,7 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+
 # Manipulation de maillages
 
 Présenté par **Daehli Nadeau-Otis**
@@ -360,7 +364,7 @@ r_z.set(
 
 Ces rotations agissent toutes différemment sur l'objet.Elles  appliquent toutes une rotation différente sur chacun des axes.
 
-|`$R_x(\theta)$`|`$R_y(\theta)$`|`$R_z(\theta)$`|
+|`$R_x(\theta)$`|`$R_y(\theta)$`|`$R_z(\theta)$|
 |---|---|---|
 |![alt text][axe_x]|![alt text][axe_y]|![alt text][axe_z]
 
