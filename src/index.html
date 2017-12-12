@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>P4x - 1 - Votre nom ici</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div id="threejsContainer"></div>
+
+		<p id="vertexGouraud">
+			// Les données sont recopier dans le Fragment
+			varying float xPosition; //déclaration de l'interpolateur(varying) dans le vertex shader. il sera interpolé puis passé au pixel shader
+			varying vec3 vertexColor; // Calcule de la couleur qui va être envoyer au Fragment
+			// Les données sont recopier de l'application
+			uniform vec3 lightPos; // La position de la lumières Vec3
+			uniform vec3 couleur; // Couleur des sphères
+			uniform vec3 lightColor; // Couleur de la lumière
+
+			void main()
+			{
+			  vec4 worldPos = modelMatrix * vec4(position, 1.0);
+			  gl_Position = projectionMatrix * viewMatrix * worldPos;
+				vec3 lightDir = normalize(lightPos - worldPos.xyz);
+				// Lambertian Cos Law
+				float dotValue = max(dot(lightDir, normal), 0.0);
+
+				// Code pour obtenir les Tranches sur les sphères
+
+				if(dotValue> 0.8 || dotValue < 0.2){
+					// La couleur noir
+					vertexColor = vec3(0,0,0) // Couleur noire
+				}else {
+					vertexColor = dotValue * couleur * lightColor;
+				}
+
+				vertexColor = dotValue * couleur * lightColor;
+
+
+			}
+
+		</p>
+
+		<p id="fragmentShaderGouraut">
+			varying vec3 vertexColor;
+			void main()
+			{
+			  gl_FragColor = vec4(vertexColor, 1.0); //on affiche la partie fractionnaire de la coordonnée x comme couleur.
+			}
+
+		</p>
+
+		<p id="vertexPhong">
+			uniform vec3 lightPosition;
+			uniform float maillage; // Entre 0 % 2 Pi
+			varying vec3 lightDir;
+			varying vec3 eyeDir;
+			varying vec3 normalV;
+			varying float currentMaillage
+
+			void main() {
+				vec4 worldPos = modelMatrix * vec4(position, 1.0);
+				lightDir = lightPosition - worldPos.xyz;
+				eyeDir = cameraPosition - worldPos.xyz;
+				normalV = normal;
+				gl_Position = projectionMatrix * viewMatrix * worldPos;
+			}
+		</p>
+
+		<p id="fragmentPhong">
+			uniform vec3 lightColor;
+			uniform vec3 sphereColor;
+			uniform float sphereShininess;
+			varying vec3 lightDir;
+			varying vec3 eyeDir;
+			varying vec3 normalV;
+
+			void main() {
+				vec3 N = normalize(normalV);
+				vec3 L = normalize(lightDir);
+				float l = clamp(dot(N, L), 0.0, 1.0);
+				vec3 col = l * (lightColor*sphereColor);
+				vec3 E = normalize(eyeDir);
+				// vec3 R = reflect(-L, N);
+				// "manual" computation of reflected vector
+				vec3 R = -L - 2.0 * dot(-L, N) * N;
+				float specular = pow(max(dot(R, E), 0.0), sphereShininess);
+				col += lightColor * specular;
+				gl_FragColor = vec4(col, 1.0);
+			}
+
+		</p>
+		<script src="three.min.js"></script>
+		<script src="Tone.min.js"></script>
+		<script src="utils.js"></script>
+		<script src="OrbitControls.js"></script>
+		<script src="dat.gui.min.js"></script>
+		<script src="scene.js"></script>
+	</body>
+
+</html>
