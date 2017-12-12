@@ -1,4 +1,4 @@
-# TP3 : Manipulation de maillages
+# Manipulation de maillages
 
 Présenté par **Daehli Nadeau-Otis**
 
